@@ -1,0 +1,234 @@
+
+{% extends 'web/base.html' %} 
+{% load static %}
+
+{% block content%}
+<div class="site-main page-spacing">
+  <section class="section">
+    <div class="container">
+      <div class="row mt">
+        <div class="col-md-6 ">
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group col-md-6">
+              <label>First name</label>
+              {{ custform.first_name }}
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Last name</label>
+              {{ custform.last_name }}
+            </div>
+
+           
+            <div class="form-group col-md-6">
+              <label>Phone</label>
+              {{ custform.phone }}
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Email</label>
+              {{ custform.email }}
+            </div>
+
+            <div class="form-group col-md-12">
+              <label>Address</label>
+              {{ custform.address }}
+            </div>
+            <div class="form-group col-md-12">
+              <p>
+                {{custform.agreeterms}} By completing this booking I acknowledge
+                I have read and accepted the
+                <a href="{% url 'web:term_and_conditions' %}" title="Contact"
+                  >Terms and Conditions
+                </a>
+                and
+                <a href="{% url 'web:cancellation_policy' %}" title="Contact"
+                  >Cancellation Policy .
+                </a>
+              </p>
+            </div>
+            <div class="form-group col-md-12 text-right">
+              <input
+                class="btn btn-primary"
+                type="submit"
+                id="pay-btn"
+                value="Book now"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <div class="col-md-2"></div>
+
+          <div class="row col-md-10 border-round">
+            <h3>Order Summary</h3>
+
+            <table class="table">
+                <tbody>
+                <tr>
+                  <th scope="col">CheckIn Date</th>
+                  <td>{{ booking.checkin_date }}</td>
+                </tr>
+                
+                <tr>
+                  <th>CheckOut Date</th>
+                  <td>{{ booking.checkout_date_display }}</td>
+                </tr>
+                <tr>
+                  <th scope="col">No. of Guests</th>
+                  <td>
+                    {{ total_adults }} Adults {% if total_childs > 0 %} , {{
+                    total_childs }} Children {% endif %}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+
+            <div class="row mt">
+              <div class="col-md-12">
+                <!-- <div class="section-title">Order Summary</div> -->
+
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th scope="col">Room Type</th>
+                      <th>No. of Rooms</th>
+
+                      <th class="text-right" scope="col">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in bkd_room_type %}
+
+                    <tr>
+                      <th scope="row">{{ item.room.title }}</th>
+                      <th>{{ item.reserved_rooms }}</th>
+                      <th class="text-right">{{ item.price }}</th>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+                <div class="row mt-4">
+                  <div class="col-lg-2">
+                    <div></div>
+                    <p></p>
+                  </div>
+                  <div class="col-lg-10 text-right">
+
+                    <div style="font-size: 15px; font-weight: 400">
+                      <div><b>{{ extra_beds }} Extra Bed </b></div>
+                      <div>₹{{ booking.total_extra_bed_price }}</div>
+                    </div>
+                    <hr class="mt-2 mb-2" />
+                    {% if booking.total_price > booking.total_offer_price %}
+                    <div
+                      style="
+                        font-size: 18px;
+                        font-weight: 400;
+                        color: rgb(106 106 106);
+                      "
+                    >
+                      <div class="">Total</div>
+                      <div class=""><s>₹{{ booking.total_price }}</s></div>
+                    </div>
+
+                    <div>
+                      <div class="order-price">Offer Price</div>
+                      <p>inclusive of all taxes</p>
+
+                      <div class="order-price">₹{{ booking.total_offer_price }}</div>
+                    </div>
+                    {% else %}
+                    <div>
+                      <div class="order-price">Total</div>
+                      <p class="text-muted">inclusive of all taxes</p>
+                      <div class="order-price">₹{{ booking.total_price }}</div>
+                    </div>
+
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %} {% block scripts %}
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  //    var email =  document.getElementById('id_email').val()
+  console.log();
+
+  $(document).ready(function () {
+    $("form").on("submit", function (event) {
+      var email = $("#id_email").val();
+      var phone = $("#id_phone").val();
+
+      var options = {
+        key: "{{ razorpay_merchant_key }}", // Enter the Key ID generated from the Dashboard
+        amount: "{{ razorpay_amount }}",
+        currency: "{{ currency }}",
+
+        name: "DeluxeInn Payment",
+        description: "Hotel Chennai",
+        // "image": "{% static 'dashboard/img/icon.png' %}",
+        order_id: "{{ razorpay_order_id }}",
+        callback_url: "{{ callback_url }}",
+        prefill: {
+          // "name": "Gaurav Kumar",
+          email: email,
+          contact: phone,
+        },
+        notes: {
+          address: "T'Nagar's Central Hotel",
+        },
+        "theme": {
+            "color": "#440000"
+        }
+      };
+      var rzp1 = new Razorpay(options);
+
+      event.preventDefault();
+
+      let $this = $(this);
+      let url = "{% url 'web:create_user_data_ajax' %}";
+      let method = $this.attr("method");
+
+      $.ajax({
+        type: method,
+        url: url,
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        data: new FormData(this),
+
+        success: function (data) {
+          if (data["status"] == "true") {
+            rzp1.open();
+          }
+        },
+        error: function (data) {},
+      });
+
+      // rzp1.on('payment.failed', function (response){
+      //         alert(response.error.code);
+      //         alert(response.error.description);
+      //         alert(response.error.source);
+      //         alert(response.error.step);
+      //         alert(response.error.reason);
+      //         alert(response.error.metadata.order_id);
+      //         alert(response.error.metadata.payment_id);
+      // });
+    });
+  });
+</script>
+
+{% endblock %}

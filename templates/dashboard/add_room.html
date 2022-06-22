@@ -1,0 +1,31 @@
+{% extends 'dashboard/base.html' %} {% load static %} {% block content %}
+
+<div class="main-content">
+    <section class="section">
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add Room</h4>
+                    </div>
+                    <form action=" " method="post">
+                        <div class="card-body">
+
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                          
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary mr-1" type="submit">Add</button>
+                            <button class="btn btn-secondary" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

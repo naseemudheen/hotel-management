@@ -1,0 +1,226 @@
+{% extends 'dashboard/base.html' %} {% load static %} {% block content %}
+
+<div class="main-content">
+    <section class="section">
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Booking</h4>
+                    </div>
+                    <!-- <button id="create-customer-button"> CreateCustomer</button>
+                    <form action="" method="post">
+                        <div class="card-body">
+
+                            {% csrf_token %}
+
+                            {{ form.as_p }}
+
+                        </div> -->
+                        <form action="{% url 'dashboard:booking_room' %}" method="post">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Account</label>
+                                    {{ form.account }}
+                                    <span class=" mt-1 d-block float-right btn-outline-primary btn-sm cursor-pointer " id="create-customer-button"> CreateCustomer</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Checkin Date</label>
+                                    {{ form.checkin_date }}
+                                </div>
+                                <div class="form-group">
+                                    <label>Checkout Date</label>
+                                    {{ form.checkout_date }}
+                                </div>
+                                
+
+                                <span class=" d-block float-right btn-outline-primary btn-sm cursor-pointer check-room-availability"
+                                    data-url="{% url 'dashboard:check_room_availabilty' %}">
+                                    Check Availability</span>
+                                    
+                                <p style="display: inline;" class="avail hide text-success">Available Rooms:</p>
+                                <!-- <p  id="room-num" class=" avail hide "></p> -->
+                                <table id="room-num" class="avail hide">
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                </table>
+
+
+
+                                <div class="formset_parent ">
+                                    {{booked_room_formset.management_form }}
+                                    {% for item in booked_room_formset %}
+                                        <div class="form_set_row w-100 d-md-inline-flex border p-3 m-2 rounded">
+                                            {{item}}
+                                        </div>
+                                        
+                                    {% endfor %}
+
+                                  
+                                </div>
+                                   
+
+                                <div class="form-group">
+                                    <label>Payment Type</label>
+                                    {{ form.payment_type }}
+                                </div>
+
+                            </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                            <button class="btn btn-secondary" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ################## -->
+
+    <div class="modal fade hide" id="create-bank-modal" tabindex="-1" role="dialog" aria-labelledby="formModal"
+        style="display: block; padding-right: 15px;" aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModal">Create Customer</h5>
+                    <button type="button" class="form-modal-close close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="ajax" action="{% url 'dashboard:create_customer_ajax' %}" method="POST"
+                        enctype="multipart/form-data">
+                  
+                        <label>First name</label>
+                        <div class="input-group">
+                            {{ account_form.first_name }}
+                        </div>
+                        <label>Last name</label>
+                        <div class="input-group">
+                            {{ account_form.last_name }}
+                        </div>
+
+                        <label for="username">Username</label>
+                        <div class="input-group">
+                            <input type="text" id="username" class="form-control check_username" name="username" value="" minlength="6"
+                                data-url="{% url 'account:check_username' %}" required="required">
+                            <div class="check_username_msg invalid-feedback" style="display: block;">Not available</div>
+                            <div class="check_username_msg valid-feedback" style="display: none;">Available</div>
+                        </div>
+
+                        <label>Email</label>
+                        <div class="input-group">
+                            {{ account_form.email }}
+                        </div>
+                        <label>Address</label>
+                        <div class="input-group">
+                            {{ account_form.address }}
+                        </div>
+                        <label>Phone</label>
+                        <div class="input-group">
+                            {{ account_form.phone }}
+                        </div>
+                            {% csrf_token %}
+                        <div class="form-group mb-0">
+                        </div>
+                        <button type="submit" class="btn btn-primary m-t-15">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade hide"></div>
+
+
+    <!-- ############## -->
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+<script src="{% static 'dashboard/js/jquery.formset.min.js' %}"></script>
+<!-- <script src="{% static 'dashboard/bundles/editable-table/mindmup-editabletable.js' %}"></script> -->
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+             
+            $(".form_set_row").formset({
+            prefix: "{{booked_room_formset.prefix}}",
+            formCssClass: "dynamic-formset1",
+            addText: "Add-Room",
+            addCssClass: "btn btn-primary btn-sm ml-2   add_row",
+            deleteCssClass: "delete-row ",
+            deleteText: "<i class='fas fa-trash-alt btn btn-sm m-2 btn-danger'></i>",
+            
+        });
+
+        $(".add_row").click(function(){
+            $(".form_set_row").each(function() {
+                let formset = $(this);
+                formset.find("input").each(function() {
+                    let $this = $(this);
+                    let value = $this.val();
+                    if(!value){
+                        $this.val(0);
+                    }
+                    console.log("value : ",value);
+                })
+            })
+
+            $(".formset_parent input").click(function(){
+            let $this = $(this);
+            console.log($this.val());
+            console.log("clicked");
+
+            if($this.val()==0){
+                $this.val("")
+            }
+        })
+        
+        })
+        $(".formset_parent input").click(function(){
+            let $this = $(this);
+            // console.log($this.val());
+            // console.log("clicked");
+
+            if($this.val()==0){
+                $this.val("")
+            }
+        })
+
+    });
+
+</script>
+
+<style>
+    .form_set_row.dynamic-formset1{
+        background-color: #f7f7f7;
+
+   
+    }
+    .form_set_row label{
+        padding-inline-start: 11px;
+        width: 25rem;
+        margin-top: 11px;      
+    }
+
+</style>
+
+{{form.media}}
+{{booked_room_formset.media}}
+
+
+{% endblock %}

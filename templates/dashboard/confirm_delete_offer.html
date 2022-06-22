@@ -1,0 +1,27 @@
+<!-- {% extends 'dashboard/base.html' %} {% load static %} {% block content %}
+<div class="main-content">
+    <section class="section">
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                      <h4>Confirm Delete</h4>
+                    </div>
+
+                    <div class="card-body">
+                      <div class="section-title mt-0"></div>
+                      <form method="POST">
+                        {% csrf_token %}
+                        <h2>Are you sure to Delete the </h2>
+                            <button class="mt-3 btn  btn-outline-danger " type="submit"> Yes,Delete </button>
+                            <a class="mt-3 btn  btn-outline-secondary " href="{% url 'dashboard:offer_list_view' %}" > Cancel </a>
+                        </form>
+                  </div>
+                </div>
+            </div>
+        </section>
+    
+    </div>
+
+{% endblock %} -->

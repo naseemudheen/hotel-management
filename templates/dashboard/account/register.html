@@ -1,0 +1,92 @@
+{% extends 'dashboard/account/auth_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="card card-primary">
+  <div class="card-header">
+    <h4>Register</h4>
+  </div>
+  <div class="card-body">
+    <form class="" method="POST" action="{% url 'account:register' %}">
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="frist_name">First Name</label>
+          {{ registration_form.first_name }}
+        </div>
+        <div class="form-group col-6">
+          <label for="last_name">Last Name</label>
+          {{ registration_form.last_name }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" class="form-control check_username" name="username" value=""
+          data-url="/account/check-username/" required="required" minlength="6">
+        <div class="check_username_msg invalid-feedback" style="display: block;">Not available</div>
+        <div class="check_username_msg valid-feedback" style="display: none;">Available</div>
+
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        {{ registration_form.address }}
+        <div class="invalid-feedback">
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="email">Email</label>
+          {{ registration_form.email }}
+          <div class="invalid-feedback">
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="phone">Phone</label>
+          <div class="phone_input">
+            {{ registration_form.phone }}
+            <span class="code_91">+91</span>
+          </div>
+          <div class="invalid-feedback">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="password" class="d-block">Password</label>
+          <!-- <input id="password22" type="password" class="form-control pwstrength" data-indicator="pwindicator"
+                        name="password"> -->
+          {{ registration_form.password1 }}
+          <div id="pwindicator" class="pwindicator">
+            <div class="bar"></div>
+            <div class="label"></div>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="password2" class="d-block">Password Confirmation</label>
+          <!-- <input id="password22" type="password" class="form-control" name="password-confirm"> -->
+          {{ registration_form.password2 }}
+        </div>
+      </div>
+      <div class="form-group">
+        <!-- <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="agree" class="custom-control-input" id="agree">
+                      <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
+                    </div> -->
+      </div>
+      <div class="form-group">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+          Register
+        </button>
+
+      </div>
+    </form>
+  </div>
+  <div class="mb-4 text-muted text-center">
+    Already Registered? <a href="{% url 'account:login' %}">Login</a>
+  </div>
+</div>
+
+{% endblock %}

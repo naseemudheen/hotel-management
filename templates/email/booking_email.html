@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin:0;padding:0">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="f2f2f2">
+          <tbody><tr>
+            <td valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="f2f2f2" style="background-color:#f2f2f2;border:5px solid #f2f2f2;margin:auto;max-width:620px;padding:10px 2px">
+                <tbody><tr>
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="f2f2f2" style="background-color:#f2f2f2">
+                      <tbody><tr>
+                        <td valign="top" align="right">
+                          <img src="http://deluxinn.in/images/logo.png">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="left">
+                          <h1 style="font-family:Arial,Helvetica Neue,Helvetica,sans-serif;margin:0;color:#767676;font-size:24px;line-height:31px;padding-bottom:9px">
+                            Booking Confirmed
+                          </h1>
+                        </td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff" style="margin:0;color:#111111">
+                      <tbody><tr>
+                        <td valign="top">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff" style="max-width:475px;margin:auto;padding:0 15px">
+                            <tbody><tr>
+                              <td valign="top">
+                                <br>
+                                <h2 style="font-family:Arial,Helvetica Neue,Helvetica,sans-serif;margin:0;color:#373d3e;font-size:16px;line-height:23px">
+                                  {{ name }}
+                                </h2>
+                                <br>
+                                <p style="font-family:Arial,Helvetica Neue,Helvetica,sans-serif;margin:0;color:#111111;font-size:16px;line-height:21px">
+                                  Your Hotel booking is successful (booking Id: #{{booking.auto_id}}).
+                                  Please see the attached e-invoice for details.
+                                </p>
+    <br>
+                </td>
+                            </tr>
+                            <tr>
+                              <td valign="top">
+                                <table width="300" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff" style="margin:auto;width:300px">
+                                  <tbody><tr>
+                                    <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                                  </tr>
+      
+                                  <tr>
+                                    <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                                  </tr>
+                                </tbody></table>
+                              </td>
+                            </tr>
+                          </tbody></table>
+                        </td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top" height="8" style="font-size:0;line-height:0"></td>
+                </tr>
+                <tr>
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff">
+                      <tbody><tr>
+                        <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                      </tr>
+                      <tr>
+                        <td valign="top">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff" style="max-width:475px;margin:auto;padding:0 15px">
+                            <tbody><tr>
+                              <td valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff">
+                                  <tbody><tr>
+                               
+                                    <td valign="middle" width="100%">
+                                      <h2 style="font-family:Arial,Helvetica Neue,Helvetica,sans-serif;margin:0;color:#111111;font-size:16px;line-height:20px">
+                                        Hotel Booking
+                                      </h2>
+                                      <span style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px;color:#767676">Booking Id:</span><strong style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px">
+                                        #{{booking.auto_id}}</strong>
+                                      <p style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px;color:#767676">Order Id: <b> {{booking.order_id}}</b></p>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" height="13" style="font-size:0;line-height:0"></td>
+                              <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                            </tr>
+                            <tr>
+                              <td valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff">
+                                  <tbody><tr>
+                                    <td valign="top" align="left" width="38%">
+                                      <div style="font-size:20px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-weight:bold;padding-bottom:4px">
+                                        CheckIn Date
+                                      </div>
+                                      <div style="font-size:14px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-weight:bold;padding-bottom:9px">
+                                        {{booking.checkin_date}} 
+                                      </div>
+                                    </td>
+                                    <td valign="top" align="center" width="24%">
+                                      <div style="border:1px dashed #e7e7e7;border-radius:4px;text-align:center;padding:3px;margin:auto">
+                                        <div style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:12px;line-height:16px;color:#555555">
+                                          {{ total_days }}
+                                        </div>
+                                        <div style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:12px;line-height:16px;color:#767676">
+                                          night
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td valign="top" align="right" width="38%">
+                                      <div style="font-size:20px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-weight:bold;padding-bottom:4px">
+                                        CheckOut Date
+                                      </div>
+                                      <div style="font-size:14px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-weight:bold;padding-bottom:9px">
+                                        {{booking.checkout_date_display}}
+                                      </div>
+
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                            </tr>
+                            <tr>
+                              <td valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff" style="border-top:solid 1px #e7e7e7">
+                                  <tbody><tr>
+                                    <td valign="top" colspan="2">
+                                      <br>
+                                      <h2 style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;margin:0;font-size:16px;font-weight:bold;line-height:20px;margin-bottom:7px;margin-top:0;color:#111111">
+                                        Payment Summary
+                                      </h2>
+                                    </td>
+                                  </tr>
+                                  {% for item in bkd_room_type %}
+                                    <tr>
+                                      <td  valign="top" align="left" width="33.33%" style="font-size:14px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;line-height:20px;padding-bottom:5px">
+                                        {{ item.room.title }} 
+                                      </td>
+                                      <td  valign="top" align="center" width="33.33%" style="font-size:14px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;line-height:20px;padding-bottom:5px">
+                                        {{ item.reserved_rooms }} 
+                                      </td>
+                                      <td valign="top" align="right" width="33.33%" style="font-size:14px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;line-height:20px;padding-bottom:5px">
+                                        {{ item.price }}
+                                      </td>
+                                    </tr>
+                                  {% endfor %}
+                                  <tr>
+                                    <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                                  </tr>
+
+                                  <tr style="">
+                                    <td valign="top" width="33.33%" align="left" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px;padding-bottom:5px;color:#555555;">
+                                     Extra Bed
+                                    </td>
+                                    <td valign="top" width="33.33%" align="center" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px;color:#111111;">
+                                      {{  extra_beds }} 
+                                    </td>
+                                    <td valign="top" width="33.33%" align="right" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px;color:#111111;text-align:right">
+                                       ₹{{ booking.total_extra_bed_price }}
+                                    </td>
+                                  </tr>
+
+                                  
+                                    {% if booking.total_price > booking.total_offer_price %}
+                                    <tr>
+                                      <td valign="top" align="left" width="33.33%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px;padding-bottom:5px;color:#555555">
+                                        Total
+                                      </td>
+                                      <td width="33.33%">
+
+                                      </td>
+                                      <td valign="top" align="right"width="33.33%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;line-height:20px;color:#111111;text-align:right">
+                                        <s>₹{{ booking.total_price }}</s>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td valign="top" align="left"width="33.33%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;font-weight:bold;line-height:20px;color:#111111;padding-top:5px">
+                                        Order Total
+                                      </td>
+                                      <td width="33.33%">
+
+                                      </td>
+                                      <td valign="top" align="right" width="33.33%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;font-weight:bold;line-height:20px;text-align:right;color:#790303">
+                                        ₹{{ booking.total_offer_price }}
+                                      </td>
+                                    </tr>  
+                                      
+                                    {% else %}
+                                    <tr>
+                                      <td valign="top" align="left" width="33.33%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;font-weight:bold;line-height:20px;color:#111111;padding-top:5px">
+                                        Order Total
+                                      </td>
+                                      <td width="33.33%">
+
+                                      </td>
+                                      <td valign="top" align="right" width="33.33%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-size:14px;font-weight:bold;line-height:20px;text-align:right;color:#790303">
+                                        ₹{{ booking.total_price }}
+                                      </td>
+                                    </tr>
+                                    {% endif %}
+                                  
+                                </tbody></table>
+                              </td>
+                            </tr>
+                          </tbody></table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top" height="8" style="font-size:0;line-height:0"></td>
+                </tr>
+                <tr>
+                  <td valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff">
+                      <tbody><tr>
+                        <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                      </tr>
+                      <tr>
+                        <td valign="top">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff" style="max-width:475px;margin:auto;padding:0 15px">
+                            <tbody><tr>
+                              <td valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="ffffff">
+                                  <tbody><tr>
+                                    <td valign="top" align="left">
+                                      <h2 style="font-family:Arial,Helvetica Neue,Helvetica,sans-serif;margin:0;color:#111111;font-size:16px;line-height:20px;margin-bottom:10px">
+                                        Important Information
+                                      </h2>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td valign="top" align="left">
+                                      <ul style="font-family:Arial,&quot;Helvetica Neue&quot;,Helvetica,sans-serif;font-size:14px;color:#111111;margin:0;padding:0">
+                    <li style="font-family:Arial,&quot;Helvetica Neue&quot;,Helvetica,sans-serif;font-size:14px;color:#111111;margin-bottom:10px;margin-left:15px">Please make sure that you read the terms and conditions of hotel <a href="#"> here.</a></li>
+                                        <li style="font-family:Arial,&quot;Helvetica Neue&quot;,Helvetica,sans-serif;font-size:14px;color:#111111;margin-bottom:10px;margin-left:15px">
+                                          For cancellation please contact us.
+                                        </li>
+                                        <!-- <li style="font-family:Arial,&quot;Helvetica Neue&quot;,Helvetica,sans-serif;font-size:14px;color:#111111;margin-bottom:10px;margin-left:15px">
+                                          
+                                        </li> -->
+                                      </ul>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                            </tr>
+                          </tbody></table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" height="16" style="font-size:0;line-height:0"></td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+</body>
+</html>

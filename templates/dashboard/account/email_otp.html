@@ -1,0 +1,39 @@
+<!-- @format -->
+
+{% extends 'dashboard/account/auth_base.html' %} {% block content %}
+<div class="card card-primary">
+  <div class="card-header">
+    <h4>Email verification</h4>
+  </div>
+  <div class="card-body">
+    <form class="" method="POST" action="{% url 'account:email_otp' %}">
+      <div class="row">
+        <div class="form-group col-12">
+          <p>
+            Enter the 6-digit verification code from the message sent to
+            <b>{{ phone }}</b>
+          </p>
+          <label for="otp">Enter Your OTP</label>
+
+          <input
+            type="text"
+            name="otp"
+            class="form-control"
+            maxlength="254"
+            required=""
+            id="otp"
+          />
+          {% csrf_token %}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+          Verify
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'dashboard/base.html' %} {% load static %} {% block content %}
+
+
+<div class="main-content">
+    <section class="section">
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Bookings</h4>
+                    </div>
+                        <div class="card-body">
+                            <div class="section-title mt-0"></div>
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+
+                                  <th scope="col">Account</th>
+                                  <th>Booking Date</th>
+                                  <th>Checkin Date</th>
+                                  <th>Checkout Date</th>
+                                  <th>Price</th>
+                                  <th>Payment Type</th>
+                                  <th>Invoice</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  
+                             {% for item in bookings %}
+                                <tr >
+                                  <td>{{ item.auto_id }}</td>
+
+                                    <td>
+                                    <a style="text-decoration:none;" class="text-dark" href="{% url 'dashboard:account_detail_view' item.account.id %}">
+                                        <b>{{ item.account.first_name }}  {{ item.account.last_name }}</b>
+                                    </a>
+                                    </td>
+                                  
+                                    <td>{{ item.booking_date }}</td>
+                                    <td>{{ item.checkin_date }}</td>
+                                    <td>{{ item.checkout_date_display }}</td>
+                                    <td>{% if item.total_price > item.total_offer_price %}
+                                     {{ item.total_offer_price }}
+                                     
+                                    {% else %}
+                                    {{ item.total_price }}
+                                    {% endif %}
+
+                                  </td>
+                                    <td>{{ item.payment_type }}</td>
+                                    <td> <a href="{% url 'dashboard:booking_invoice' item.id %}" class="btn btn-outline-primary btn-sm">view invoice</a></td>
+                                 
+                                </tr>
+                            {% endfor %}
+                              </tbody>
+                            </table>
+                   
+                </div>
+            </div>
+
+               <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <div class="dataTables_paginate paging_simple_numbers" id="table-1_paginate">
+                <ul class="pagination justify-content-center">
+                  {% if page_obj.has_previous %}
+                  <li class="paginate_button page-item previous" id="table-1_previous">
+                    <a href="?page=1" aria-controls="table-1" data-dt-idx="0" tabindex="0" class="page-link">&laquo;
+                      First</a>
+                  </li>
+                  <li class="paginate_button page-item">
+                    <a href="?page={{ page_obj.previous_page_number }}" aria-controls="table-1" data-dt-idx="2" tabindex="0"
+                      class="page-link">{{ page_obj.previous_page_number }}</a>
+                  </li>
+          
+                  {% endif %}
+          
+                  <li class="paginate_button page-item active">
+                    <a href="#" aria-controls="table-1" data-dt-idx="1" tabindex="0" class="page-link">
+                      {{ page_obj.number }}</a>
+                  </li>
+          
+                  {% if page_obj.has_next %}
+                  <li class="paginate_button page-item">
+                    <a href="?page={{ page_obj.next_page_number }}" aria-controls="table-1" data-dt-idx="2" tabindex="0"
+                      class="page-link">{{ page_obj.next_page_number }}</a>
+                  </li>
+          
+                  <li class="paginate_button page-item next" id="table-1_next">
+                    <a href="?page={{ page_obj.paginator.num_pages }}" aria-controls="table-1" data-dt-idx="3" tabindex="0"
+                      class="page-link">Last &raquo;</a>
+                  </li>
+          
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+              <div class="dataTables_info text-center" id="table-1_info" role="status" aria-live="polite">
+                Page {{ page_obj.number }} of
+                {{page_obj.paginator.num_pages }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+     
+    </section>
+
+
+
+
+{% endblock %}

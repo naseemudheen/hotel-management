@@ -1,0 +1,947 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>DeluxeInn</title>
+
+	<!-- Standard Favicon -->
+	<link rel="icon" type="image/x-icon" href="#" />
+
+	<!-- For iPhone 4 Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114"
+		href="{% static 'web/images//apple-touch-icon-114x114-precomposed.png' %}">
+
+	<!-- For iPad: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72"
+		href="{% static 'web/images//apple-touch-icon-72x72-precomposed.png' %}">
+
+	<!-- For iPhone: -->
+	<link rel="apple-touch-icon-precomposed" href="{% static 'web/images//apple-touch-icon-57x57-precomposed.png' %}">
+
+	<!-- Library - Google Font Familys -->
+
+	<!-- Library - Bootstrap v3.3.5 -->
+	<link rel="stylesheet" type="text/css" href="{% static 'web/libraries/lib.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'web/libraries/calender/calendar.css' %}">
+
+	<!-- Custom - Common CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/plugins.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/navigation-menu.css' %}">
+
+	<!-- Custom - Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/shortcodes.css' %}" />
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'dashboard/img/icon.png' %}" />
+
+	<!--[if lt IE 9]>
+		<script src="{% static 'web/js/html5/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
+	<!-- Loader -->
+	<div id="site-loader" class="load-complete">
+		<div class="loader">
+			<div class="loader-inner ball-clip-rotate">
+				<div></div>
+			</div>
+		</div>
+	</div><!-- Loader /- -->
+
+	<a id="top"></a>
+
+	<!-- Header Section -->
+	<header id="header" class="header-section header-position container-fluid no-padding">
+		<!-- Top Header -->
+		<div class="top-header container-fluid">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<div class="logo-block col-md-3 col-sm-3"><a href="{url 'web:index'}" title="DeluxeInn"><img
+								src="{% static 'web/images/logo.png' %}" alt="Logo" style="margin-top: -41px;" /></a>
+					</div>
+					<div class="col-md-9 contact-detail">
+						<div class="phone ">
+							<img src="{% static 'web/images/phone-ic.png' %}" alt="Phone" />
+							<h6>contact us</h6>
+							<a href="tell:1800234567890" title="7907 555 555">7907 555 555
+								|+9144 24327836 <br> 24327837 |
+								+91 9962541077 | 9962541190</a>
+						</div>
+						<div class="address">
+							<img src="{% static 'web/images/address-ic.png' %}" alt="Address" />
+							<h6>our office</h6>
+							<p> 49, Theyagaraya Road,<br>
+								Pondy Bazar, Chennai-600017</p>
+
+						</div>
+						<div class="menu-search">
+
+
+						</div>
+					</div>
+				</div>
+			</div><!-- Container /- -->
+		</div><!-- Top Header /- -->
+		<!-- Menu Block -->
+		<div class="menu-block">
+
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<nav class="navbar navbar-default ow-navigation">
+							<div class="navbar-header">
+								<button aria-controls="navbar" aria-expanded="false" data-target="#navbar"
+									data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a href="{% url 'web:index' %}" title="Deluxe Inn" class="navbar-brand"><img
+										src="{% static 'web/images/logo.png' %}" alt="Logo"
+										style="margin-top: -101px; max-width:50%" /></a>
+							</div>
+							<div class="navbar-collapse collapse" id="navbar">
+								<ul class="nav navbar-nav">
+									<li class="dropdown active">
+										<a href="#index" title="Home" class="dropdown-toggle" role="button"
+											aria-haspopup="true" aria-expanded="false">Home</a>
+
+
+
+									</li>
+									<li><a href="#about" title="About Us">about Us</a></li>
+									<li class="dropdown">
+										<a href="#room" title="Rooms" class="dropdown-toggle" role="button"
+											aria-haspopup="true" aria-expanded="false">Rooms</a>
+
+
+									</li>
+									<li><a href="#service" title="Services">Services</a></li>
+									<li><a href="#gallery" title="Gallery">Gallery</a></li>
+
+
+									<li><a href="#contact" title="Contact">Contact</a></li>
+								</ul>
+							</div>
+							
+						</nav>
+					</div>
+					<div class="col-md-2 book-now">
+						<a href="#" title="book">Book Now</a>
+					</div>
+				</div><!-- Row /- -->
+				
+			</div><!-- Container /- -->
+		</div><!-- Menu Block /- -->
+	
+		
+	</header><!-- Header Section /- -->
+
+	<main class="site-main page-spacing">
+		<!-- Slider Section -->
+		<div id="slider-section" class="slider-section slider-section2 container-fluid no-padding spotlight">
+			<div id="photo-slider" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox" id="index">
+
+					<div class="item active">
+						<img src="{% static 'web/images/slider/slide2.jpg' %}" alt="Slide" />
+						<div class="carousel-caption">
+
+
+							<h2 data-animation="animated fadeInDown">Redefine Hospitality</h2>
+							<h6 data-animation="animated bounceIn">Redefine Comfort</h6>
+
+
+						</div>
+					</div>
+					<div class="item">
+						<img src="{% static 'web/images/slider/slide1.jpg' %}" alt="Slide" />
+						<div class="carousel-caption">
+
+							<h2 data-animation="animated fadeInDown" style="color:#440000">Feel the Warmth </h2>
+							<h6 data-animation="animated bounceIn">of Chennai</h6>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="booking-banner container " id ="booking">
+							<div class="row">
+								<form action="{% url 'web:order_summary'%}" method="post">
+			
+									{% csrf_token %}
+									
+									<div class="form-group col-lg-3 ">
+										<label>Checkin Date</label>
+											{{ form.checkin_date }}
+										</div>
+										<div class="form-group col-lg-3">
+											<label>Checkout Date</label>
+											{{ form.checkout_date }}
+										</div>
+										<div class="form-group col-lg-4 col-sm-12">
+											<!-- <label>Select Room</label>
+
+											<input id="room_formset" class="form-control"type="text" value="0 Rooms,0 Adults,0 children"> -->
+												<div class="formset_parent">
+													{{booked_room_formset.management_form }}
+													{% for item in booked_room_formset %}
+														<div class="form_set_row  border ">
+															{{item.as_p}}
+															<!-- {{item}} -->
+														</div>
+														
+													{% endfor %}
+													<p class="text-danger hide" id="room-availablity">Room is not Available</p>
+												</div>
+										</div>
+				
+										
+									
+											
+										<div class="form-group col-lg-2">
+											<label class="opacity_0" for=""> submit</label>
+											<input class="btn btn-danger form-control submit_button" type="submit" value="book now" title="Book Now">
+										</div>
+									</form>
+							</div>
+						</div>
+					</div>
+						
+				
+
+				</div>
+				<!-- Controls -->
+				<a class="left carousel-control" href="#photo-slider" role="button" data-slide="prev">
+					<span class="fa fa-angle-left" aria-hidden="true"></span>
+				</a>
+				<a class="right carousel-control" href="#photo-slider" role="button" data-slide="next">
+					<span class="fa fa-angle-right" aria-hidden="true"></span>
+				</a>
+			
+			<p class="goto-next"><a href="#" title="Go to Next" class="bounce"><img
+						src="{% static 'web/images/slider/go-to-next.png' %}" alt="Go To Next" /></a></p>
+
+			
+				
+			</div>	
+		</div>			
+		<!-- booking sections /- -->
+
+
+
+		
+	
+
+		<!-- Welcome Section -->
+
+		<div class="container" id="about">
+
+
+			<div class="content-block container-fluid">
+				<div class="row">
+					<div class="col-md-5 col-sm-6 col-xs-12 content-img-block">
+						<img src="{% static 'web/images/upload.jpeg' %}" alt="Waiter">
+					</div>
+					<div class="col-md-7 col-sm-6 col-xs-12">
+						<h3>About <span style="color:#440000">Deluxe Inn</span></h3>
+						<p>Deluxe Inn is among Chennai's best located hotels at the heart of the Chennai’s cultural,
+							commercial and entertainment hub with an unparalleled experience.
+
+							At DeluxeInn, every guest is guaranteed to experience affordable luxury - as we bring you
+							the ultimate combination of convenience and aesthetics.
+
+							Not just that, our guests will have easy access to the Railway station & Airport shopping
+							malls, consulates, hospitals, marriage halls & more as well.
+
+							Get ready to experience a stay of affordable luxury - designed with your needs, at the heart
+							of Chennai.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Booking Section 2 -->
+		<div id="accmmodation-section" class="accmmodation-section container-fluid no-padding">
+			<div class="section-padding"></div>
+			<!-- Container -->
+			<div class="container" id="room">
+				<!-- Section Header -->
+				<div class="section-header">
+					<h3>rooms</h3>
+
+
+				</div><!-- Section Header /- -->
+
+				<div class="accmmodation-carousel">
+					{% for item in rooms %}
+						<div class="accmmodation-box">
+							<img src="{{ item.image.url }}" alt="Accommodation" />
+							<h3>{{ item.title }}</h3><br>
+							<div class="facility-box">
+								<ul style=" display:flex;  ">
+									<i><img src="{% static 'web/images/room/ac.svg' %}" alt="Facility Icon" style="width:20px;"></i>
+									&nbsp;&nbsp;<i><img src="{% static 'web/images/room/wifi.svg' %}" alt="Facility Icon"
+											style="width:20px;"></i>
+									&nbsp;&nbsp;<i><img src="{% static 'web/images/room/tv.svg' %}" alt="Facility Icon"
+											style="width:20px;"></i>
+									&nbsp;&nbsp;<i><img src="{% static 'web/images/room/phone.svg' %}" alt="Facility Icon"
+											style="width:20px;"></i>
+									&nbsp;&nbsp;<i><img src="{% static 'web/images/room/washing.svg' %}" alt="Facility Icon"
+											style="width:20px;"></i>
+									&nbsp;&nbsp;<i><img src="{% static 'web/images/room/tub.svg' %}" alt="Facility Icon"
+											style="width:20px;"></i>
+									&nbsp;&nbsp;<i><img src="{% static 'web/images/room/shower.svg' %}" alt="Facility Icon"
+											style="width:20px;"></i>
+
+								</ul>
+							</div>
+							{% if item.offer_price %}
+							<h3><s><span>₹</span> {{ item.new_price }}</s></h3>
+							<h6><span>{{ item.offer_name }}</span></h6>	
+							<h2><span>₹</span> {{ item.offer_price }}</h2>
+							{% else %}
+							<h2><span>₹</span> {{ item.new_price }}</h2>
+							
+							{% endif %}
+
+							<a class="read-more" title="Read More" href="#booking">Book Now <i
+									class="fa fa-long-arrow-right"></i></a>
+
+						</div>
+					{% endfor %}
+				</div>
+			</div><!-- Container /- -->
+			<div class="section-padding"></div>
+		</div><!-- Accommodation Section /- -->
+
+
+		<!-- Section Header /- -->
+
+
+		<div class="section-padding"></div>
+		<section class="we-offer-area text-center bg-gray" id="service">
+			<div class="container">
+
+				<div class="section-header">
+					<h3>Our Services</h3>
+
+
+
+				</div>
+				<div class="row our-offer-items less-carousel">
+					<!-- Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-wifi" aria-hidden="true"></i>
+							<h4>WiFi</h4>
+
+
+						</div>
+					</div>
+					<!-- End Single Item -->
+
+					<!-- Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-user-md" aria-hidden="true"></i>
+							<h4>Doctor on call</h4>
+
+
+						</div>
+					</div>
+					<!-- End Single Item -->
+
+					<!-- Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+							<h4>Advanced Security</h4>
+
+						</div>
+					</div>
+					<!-- End Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-television" aria-hidden="true"></i>
+							<h4>DTH Cable</h4>
+
+						</div>
+					</div>
+					<!-- Single Item -->
+
+
+					<!-- End Single Item -->
+
+
+
+
+					<!-- Single Item -->
+
+
+					<!-- End Single Item -->
+				</div>
+				<div class="row our-offer-items less-carousel">
+					<!-- Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-bed" aria-hidden="true"></i>
+							<h4>Room Service</h4>
+
+						</div>
+					</div>
+					<!-- End Single Item -->
+
+					<!-- Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-tint" aria-hidden="true"></i>
+							<h4>Hot & cold water</h4>
+
+
+						</div>
+					</div>
+					<!-- End Single Item -->
+
+					<!-- Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-plane" aria-hidden="true"></i>
+							<h4>Travel desk
+							</h4>
+
+
+						</div>
+					</div>
+					<!-- End Single Item -->
+					<div class="col-md-3 col-sm-6 equal-height">
+						<div class="item">
+							<i class="fa fa-hourglass-half" aria-hidden="true"></i>
+							<h4>12 Hrs check in/out
+							</h4>
+
+
+						</div>
+					</div>
+	
+				</div>
+
+			</div>
+		</section>
+		<div class="section-padding"></div>
+
+
+		<!-- Services Section -->
+		<div id="services-section" class="services-section container-fluid no-padding">
+			<div class="container" id="gallery">
+				<!-- Section Header -->
+				<div class="section-header">
+					<h3>Gallery</h3>
+
+					<section class="no-touch">
+
+						<div class="wrap">
+
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g1.png' %}" />
+									<div class="titleBox"></div>
+								</div>
+							</div>
+
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g2.png' %}" />
+									<div class="titleBox"></div>
+								</div>
+							</div>
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g3.png' %}" />
+									<div class="titleBox"></div>
+								</div>
+							</div>
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g4.png' %}" />
+									<div class="titleBox"></div>
+								</div>
+							</div>
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g5.png' %}" />
+									<div class="titleBox"></div>
+								</div>
+							</div>
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g6.png' %}" />
+									<div class="titleBox"></div>
+								</div>
+							</div>
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g7.png' %}" />
+									<div class="titleBox"></div>
+								</div>
+							</div>
+
+
+
+
+
+							<div class="box">
+								<div class="boxInner">
+									<img src="{% static 'web/images/gallery/g8.png' %}" />
+									<!--footer -->
+									<div class="titleBox"></div>
+								</div>
+							</div>
+
+						</div>
+
+					</section>
+				</div>
+			</div><!-- Services Section /- -->
+
+
+
+			<div class="section-padding"></div>
+			<!-- Blog Section -->
+
+			<div id="testimonial-section" class="testimonial-section container-fluid no-padding">
+				<!-- section Header -->
+				<div class="section-header">
+					<h3>Testimonial</h3>
+				</div><!-- section Header /- -->
+				<!-- Container -->
+				<div class="container">
+					<div class="col-md-1"></div>
+					<div class="col-md-10 col-sm-12 col-xs-12">
+						<div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner" role="listbox">
+								<div class="item next left">
+									<span>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+									</span>
+									<p>My memories of the stay at Deluxe Inn is sweet- I stayed at deluxe inn for my US
+										visa interview. The owner &amp; staff were super friendly, courteous and
+										helpful. They made it a point to make my stay as stress free as it can be. Their
+										tag line can’t be more true- best memories are made here! Thank you Team Deluxe
+										Inn!</p>
+									<!-- <img src="{% static 'web/images/testi1.png' %}" alt="Testi"> -->
+									<h4>Uma Shankar, New York</h4>
+								</div>
+								<div class="item active left">
+									<span>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+										<i class="fa fa-star-o"></i>
+									</span>
+									<p>A Costomer is the most important visitor on our premises He is not dependent on
+										us. We are dependent on him He is not interruption in our service. He is the
+										purpose of it. He is not an outsider in our business. He is part of it. We are
+										not doing him a favor by serving him. He is doing us a favor by giving us an
+										opportunity to do so.</p>
+									<!-- <img src="{% static 'web/images/testi1.png' %}" alt="Testi"> -->
+									<h4>Mahatma Gandhi</h4>
+								</div>
+
+
+
+							</div>
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
+								<li data-target="#testimonial-carousel" data-slide-to="1" class=""></li>
+								<li data-target="#testimonial-carousel" data-slide-to="2" class=""></li>
+							</ol>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#testimonial-carousel" role="button"
+								data-slide="prev">
+								<i class="arrow_carrot-left"></i>
+							</a>
+							<a class="right carousel-control" href="#testimonial-carousel" role="button"
+								data-slide="next">
+								<i class="arrow_carrot-right"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-1"></div>
+				</div><!-- Container /- -->
+				<div class="section-padding"></div>
+			</div>
+			<!-- Accommodation Section -->
+
+			<div id="recommended-section" class="recommended-section container-fluid no-padding">
+				<!-- Container -->
+				<div class="container">
+					<div class="section-header">
+						<h3>Nearby and Landmark</h3>
+
+
+					</div>
+					<div class="recommended-detail">
+						<div class="col-md-6 col-sm-12 col-xs-12 no-padding hotel-detail">
+							<div class="col-md-6 col-sm-6 col-xs-6 ">
+								<img src="{% static 'web/images/a.png' %}" alt="Recommended" height="267" width="297">
+
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-6 " style="padding-top: 12px; padding-bottom: 36px;">
+								<h4>Nearby Malls & Restaurants</h4>
+								<p>Pondy Bazaar 0.4 Km<br>
+									Spencer Plaza Mall 3.3 Km<br>
+									Express Avenue Mall 3.3 Km<br>
+									The Forum Vijaya Mall 3.5 Km<br>
+									Citi Center Chennai 3.6 Km</p>
+
+
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12 col-xs-12 no-padding hotel-detail">
+							<div class="col-md-6 col-sm-6 col-xs-6 ">
+								<img src="{% static 'web/images/b.jpg' %}" alt="Recommended" height="267" width="297">
+
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-6 " style="padding-top: 12px; padding-bottom: 36px;">
+								<h4>Closest Airport, Railway Station & Bus Stand</h4>
+								<p>Chennai Mofussil Bus Terminus 4.8 Km<br>
+									Egmore Railway Station 4.8 Km<br>
+									Chennai Park Railway Station 5.7 Km<br>
+									Chennai Central Railway station 6 Km<br>
+									Chennai Central Bus Stand 6 Km<br>
+									Chennai International Airport 9.1 Km</p>
+
+
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12 col-xs-12 no-padding hotel-detail">
+							<div class="col-md-6 col-sm-6 col-xs-6 ">
+								<img src="{% static 'web/images/c.jpg' %}" alt="Recommended" height="267" width="297">
+
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-6 " style="padding-top: 12px; padding-bottom: 36px;">
+								<h4>Popular Tourist Attractions</h4>
+								<p>Tirumala Tirupathi Devasthanam 0.7 Km<br>
+									T Nagar, Ranganathan Street 1.2 Km<br>
+									Room Escape Games (1) 2 Km<br>
+									The Anna Centenary Library 2.6 Km<br>
+									Shirdi Sai Baba Temple 2.7 Km</p>
+
+
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12 col-xs-12 no-padding hotel-detail">
+							<div class="col-md-6 col-sm-6 col-xs-6 ">
+								<img src="{% static 'web/images/d.jpg' %}" alt="Recommended" height="267" width="297">
+
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-6 " style="padding-top: 12px; padding-bottom: 36px;">
+								<h4>Nearby Landmarks</h4>
+								<p>Panagal Park 0.4 Km<br>
+									US Embassy 0.4 Km<br>
+									Singapore Embassy 0.7 Km<br>
+									AGS Cinemas 0.9 Km<br>
+									Consulate General of Malaysia 1 Km</p>
+
+
+							</div>
+						</div>
+
+
+					</div>
+				</div><!-- Container /- -->
+				<div class="section-padding"></div>
+			</div>
+
+
+	</main>
+
+	<!-- Footer Section -->
+	<div class="footer-section container-fluid no-padding" id="contact">
+		<!-- Top Footer -->
+		<div class="top-footer container-fluid no-padding">
+			<!-- Container -->
+			<div class="container-fluid">
+				<div class="row">
+					<aside class="col-md-2 col-sm-12 col-xs-12 ">
+						<!-- <h4 class="widget_title">Contact Us</h4> -->
+					<div class="footer-navigation">
+							
+							<p> <a href="#index">Home</a></p>
+							<p><a href="#about" title="About Us">About Us</a></p>
+							
+							<p><a href="#room" title="Rooms" >Rooms</a></p>
+							
+							<p><a href="#service" title="Services">Services</a></p>
+							<p><a href="#contact" title="Contact">Contact</a></p>
+							<p><a href="{% url 'web:term_and_conditions' %}" title="Contact">Term and Conditions</a></p>
+							<p><a href="{% url 'web:privacy_policy' %}" title="Contact">Privacy Policy</a></p>
+							<p><a href="{% url 'web:cancellation_policy' %}" title="Contact">Cancellation Policy</a></p>
+
+					</div>
+					</aside>
+
+					<!-- Text Widget -->
+					<aside class="col-md-3 col-sm-12 col-xs-12 contact-content">
+						<h4 class="widget_title">Contact Us</h4>
+					<div class="contact-detail">
+						<i class="fa fa-map-marker"></i>
+						<h5>Office Address</h5>
+						<p>28, Theyagaraya Road,
+							Pondy Bazaar,
+							T Nagar, Chennai </p>
+					</div>
+					<div class="contact-detail">
+						<i class="fa fa-phone"></i>
+						<h5>Phone</h5>
+						<p><span>Local: <a href="#">+914424327836</a></span><span>Mobile: <a href="#">9962541190
+								</a></span></p>
+					</div>
+					<div class="contact-detail">
+						<i class="fa fa-envelope"></i>
+						<h5>Email Address</h5>
+						<p><a href="mailto:info@Hotely.com" title="info@Hotely.com">hoteldeluxeinn@yahoo.com</a></p>
+					</div>
+					<ul>
+						<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+
+							<li><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="#" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+
+
+						</ul>
+					</aside>
+					<!-- pages -->
+
+
+					<!-- Newsletter -->
+					<aside class="col-md-4 col-sm-6 col-xs-6 widget widget_newsletter">
+
+						<form class="contact-form" id="contact_form" action="https://mail-sender.vingb.com/send/c1fcf443-5aa6-4445-b3ca-aa6aa4885d66" method="post">
+							<div class="form-group">
+								<input type="text" class="form-control" id="input_name" name="enq_name"
+									placeholder="Full Name" required="">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="input_phone" name="enq_phone"
+									placeholder="Phone No" required="">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" id="input_email" name="enq_email"
+									placeholder="Email Address" required="">
+							</div>
+							<div class="form-group">
+								<textarea id="textarea_message" class="form-control" rows="5" name="enq_message"
+									placeholder="Type here message" required=""></textarea>
+							</div>
+							<div class="form-group">
+								<input id="form_submit" type="submit" value="Send Message">
+							</div>
+							<div id="alert-msg" class="alert-msg"></div>
+						</form>
+					</aside><!-- Newsletter /- -->
+					<!-- Gallery -->
+					<aside class="col-md-3 col-sm-6 col-xs-6 widget widget_gallery">
+
+						<div class="mapouter">
+							<div class="gmap_canvas"><iframe width="400" height="400" id="gmap_canvas"
+									src="https://maps.google.com/maps?q=Bank%20Of%20Baroda%2074,%20Sir%20Theagaraya%20Rd,%20Pondy%20Bazaar,%20Parthasarathi%20Puram,%20T.%20Nagar,%20Chennai,%20Tamil%20Nadu%20600017,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+									frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+									href="https://fmovies-online.net"></a><br><a
+									href="https://www.embedgooglemap.net"></a>
+								<style>
+									.gmap_canvas {
+										overflow: hidden;
+										background: none !important;
+									}
+								</style>
+							</div>
+						</div>
+					</aside><!-- Gallery /- -->
+				</div>
+			</div><!-- Container /- -->
+
+		</div><!-- Top Footer -->
+		<div class="bottom-footer container-fluid">
+			<p>&copy; Copyrights 2021 Deluxe Inn. All Rights Reserved</p>
+		</div>
+	</div><!-- Footer Section /- -->
+
+	<!-- JQuery v1.11.3 -->
+	<script src="https://www.google.com/recaptcha/api.js?render=6LfgVUUdAAAAAJ1LTsYZpqJYHTgneEaLurwn-Blg"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="{% static 'web/js/jquery.min.js' %}"></script>
+
+	<script src="{% static 'web/js/custom.js' %}"></script>
+	
+
+
+	<!-- Library JS -->
+	<script src="{% static 'web/libraries/lib.js' %}"></script>
+	<script src="{% static 'web/libraries/calender/jquery-ui-datepicker.min.js' %}"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+
+
+	<!-- formset -->
+	<script src="{% static 'dashboard/js/jquery.formset.min.js' %}"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$(".form_set_row").formset({
+            prefix: "{{booked_room_formset.prefix}}",
+            formCssClass: "dynamic-formset1",
+            addText: "Add Room ",
+            addCssClass: "btn btn-primary btn-xs add_row",
+            deleteCssClass: "delete-row",
+            deleteText: `<label class="opacity_0">Delete</label><i class="btn btn-outline-danger"><img src="{% static 'web/images/times-solid.svg' %}" alt="Facility Icon"
+											style="width:20px;"></i>`,
+            
+        });
+		$(".add_row").click(function(){
+            $(".form_set_row").each(function() {
+                let formset = $(this);
+                formset.find("input").each(function() {
+                    let $this = $(this);
+                    let value = $this.val();
+                    if(!value){
+                        $this.val(0);
+                    }
+                    // console.log("value : ",value);
+                })
+            })
+
+            $(".formset_parent input").click(function(){
+            let $this = $(this);
+            // console.log($this.val());
+            // console.log("clicked");
+
+            if($this.val()==0){
+                $this.val("")
+            }
+        })
+        
+        })
+        $(".formset_parent input").click(function(){
+            let $this = $(this);
+            if($this.val()==0){
+                $this.val("")
+            }
+        })
+			
+		});
+	</script>
+
+<script>
+    $(document).ready(function () {
+      $("#contact_form").submit(function (event) {
+
+        let $this = $(this);
+        event.preventDefault();
+
+        swal({
+          title: "Sending...!",
+          text: ".",
+          icon: "info",
+          button: false,
+        });
+
+        // grecaptcha.ready(function () {
+        //   grecaptcha.execute('6LfgVUUdAAAAAJ1LTsYZpqJYHTgneEaLurwn-Blg', { action: 'submit' }).then(function (token) {
+
+
+            let town = $("#town").val();
+            var url = $this.attr("action");
+            var method = $this.attr("method");
+            var data = $($this).serialize();
+            $.ajax({
+              type: 'post',
+              url: url,
+              dataType: 'json',
+              data: data,
+              success: function (data) {
+                console.log(data['status'])
+
+                console.log("success");
+                if (data['status']) {
+                  swal({
+                    title: "Thank you!",
+                    text: "Your message has been successfully sent.\n We will contact you very soon!",
+                    icon: "success",
+                    button: false,
+                  });
+
+                  setTimeout(function () {
+                    swal.close();
+                  }, 1000)
+                } else {
+                  swal({
+                    title: "Try Again !",
+                    text: "something went wrong",
+                    icon: "warning",
+                    button: "OK",
+                  });
+                }
+
+              },
+              error: function (data) {
+                swal({
+                  title: "Try Again !",
+                  text: "something went wrong",
+                  icon: "warning",
+                  button: "OK",
+                });
+
+              }
+            });
+
+
+
+        //   });
+        // });
+
+
+
+      });
+
+
+
+    });
+  </script>
+
+
+	<!-- Library - Theme JS -->
+	<script src="{% static 'web/js/functions.js' %}"></script>
+
+	{{form.media}}
+	{{booked_room_formset.media}}
+
+</body>
+
+</html>

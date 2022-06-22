@@ -1,0 +1,243 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- index.html  21 Nov 2019 03:44:50 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Deluxe Inn - {{title}}</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/app.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/bundles/fullcalendar/fullcalendar.min.css' %}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/components.css' %}">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="{% static 'dashboard/css/custom.css' %}">
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'dashboard/img/icon.png' %}" />
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar sticky">
+                <div class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                                <i data-feather="maximize"></i>
+                            </a></li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                        class="nav-link nav-link-lg message-toggle"><i data-feather="bell" class="bell"></i>
+                        <span class="badge headerBadge1" id="notification-num">
+                            <!-- notification-num -->
+                              </span> </a>
+                      <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                            <div class="dropdown-header">
+                                Notifications
+                                <div class="float-right">
+                                    <a  id="markasread" href="#">Mark All As Read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-icons" id="notification">
+                                <!-- notification -->
+
+                            </div>
+                            <div class="dropdown-footer text-center">
+                            <a href="{% url 'dashboard:online_booking_list_view' %}">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
+                                src="{% static 'dashboard/img/blog/img03.png' %}" class="user-img-radious-style"> <span
+                                class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div class="dropdown-title">Hello {{ request.user.username }}</div>
+
+                            <div class="dropdown-divider"></div>
+                            <a href="{% url 'account:logout' %}" class="dropdown-item has-icon text-danger"> <i
+                                    class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar sidebar-style-2 print_hide">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="{% url 'dashboard:index' %}"> <img alt="image" src="{% static 'dashboard/img/logo.png' %}"
+                                class="header-logo" />
+                            <!-- <span class="logo-name"></span> -->
+                        </a>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Main</li>
+                        <li data-page-name="dashboard" class="dropdown ">
+                            <a href="{% url 'dashboard:index' %}" class="nav-link"><i
+                                    data-feather="monitor"></i><span>Dashboard</span></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown active"><i
+                                    data-feather="mail"></i><span>Booking</span></a>
+                            <ul  class="dropdown-menu " style="display:block"  >
+                                <li data-page-name="booking_room"><a class="nav-link" href="{% url 'dashboard:booking_room' %}">New Booking</a></li>
+                            </ul>
+                            <ul  class="dropdown-menu" style="display:block">
+                                <li data-page-name="booking_listview"><a class="nav-link" href="{% url 'dashboard:booking_list_view' %}">Booking List</a></li>
+                            </ul>
+                            <ul  class="dropdown-menu" style="display:block">
+                                <li data-page-name="online_booking_listview"><a class="nav-link" href="{% url 'dashboard:online_booking_list_view' %}">Online Booking List</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                    data-feather="command"></i><span>Offers</span></a>
+                            <ul class="dropdown-menu" style="display:block">
+                                <li data-page-name="room_offer"><a class="nav-link" href="{% url 'dashboard:offer_room' %}">Room Offer</a></li>
+                            </ul>
+                            <ul class="dropdown-menu" style="display:block">
+                                <li data-page-name="offer_list_view"><a class="nav-link" href="{% url 'dashboard:offer_list_view' %}">Offer List</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                    data-feather="mail"></i><span>Hotel Rooms</span></a>
+                            <ul  class="dropdown-menu"  style="display:block">
+                                <li data-page-name="room_types"><a class="nav-link" href="{% url 'dashboard:room_list_view' %}">Room Types</a></li>
+                            </ul>
+                            <ul  class="dropdown-menu"  style="display:block">
+                                <li data-page-name="add_room_type"><a class="nav-link" href="{% url 'dashboard:create_room' %}">Add Room Types</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+            <!-- Main Content -->
+            {% block content %} 
+            
+            {% endblock %}
+
+            <footer class="main-footer print_hide">
+                <div class="footer-centre">
+                    <a class="decoration-none"href="http://www.osperb.com">Osperb</a></a>
+                </div>
+                <div class="footer-right">
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="{% static 'dashboard/js/app.min.js' %}"></script>
+    <!-- JS Libraies -->
+    <script src="{% static 'dashboard/bundles/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="{% static 'dashboard/js/page/index.js' %}"></script>
+      <!-- JS Libraies -->
+    <!-- <script src="{% static 'dashboard/bundles/fullcalendar/fullcalendar.min.js' %}"></script> -->
+    <!-- Page Specific JS File -->
+    <!-- <script src="{% static 'dashboard/js/page/calendar.js' %}"></script> -->
+
+    <!-- Template JS File -->
+    <script src="{% static 'dashboard/js/scripts.js' %}"></script>
+    <!-- Custom JS File -->
+    <script src="{% static 'dashboard/js/custom.js' %}"></script>
+
+    {% block scripts %}
+   
+    {% endblock %}
+    <script>
+        {% if  page_name %}
+          let active_page =  $("li[data-page-name='{{page_name}}']");
+          active_page.parents("li").addClass("active");
+          active_page.addClass("active");
+        {% endif %}
+
+        $(document).ready(function () {
+            console.log("sucess")
+            get_notificationn()
+
+            
+            $("#markasread").click(function () {
+                    $.ajax({
+                    type: "GET",
+                    url: "{% url 'dashboard:mark_as_read_notifi_ajax' %}",
+                    dataType: "json",
+                    contentType: false,
+                    processData: false,
+
+                    success: function (data) {
+                        if (data["status"] == "True") {
+                                console.log("clicked inside")
+                                get_notificationn()
+                                // $('#notification').html("")
+                                // $('#notification-num').html(0)
+
+                        }   
+                        },
+                        });
+    
+            });
+
+            function get_notificationn(){
+                let txt=""
+                $.ajax({
+                    type: "GET",
+                    url: "{% url 'dashboard:notifications_ajax' %}",
+                    dataType: "json",
+                    contentType: false,
+                    processData: false,
+                    // data:  "room=" + room + "&checkin=" + checkin_date + "&checkout=" + checkout_date ,
+
+                    success: function (data) {
+                        if (data["status"] == "True") {
+                            num = data["list"].length
+                            $('#notification-num').html(num)
+                            $.each(data["list"], function(i, item) {
+                                txt+=`<a href="#" class="dropdown-item dropdown-item-unread"> 
+                                        <span class="dropdown-item-icon bg-success text-white"> <i class="fas fa-check"></i>
+                                        </span> <span class="dropdown-item-desc"> <b> ${item["txt"]} </b> <span class="time">
+                                            ${item["delta"]}
+                                            </span>
+                                        </span>
+                                        </a> `
+                                });
+
+                                // $.each(data["rooms"], function(i, item) {
+                                // // txt += item["room_type_title"] +"₹"+ item["price"] + "   : " + item["available_rooms"] + "<br />";
+                                // if(item["available_rooms"]>0){
+                                //         txt += "<tr class='text-success'> <td>"+item["room_type_title"]+"</td><td><b>"+"₹"+item["price"]+"</b></td><td>"+"   : "+item["available_rooms"]+"</td></tr>"
+                                // }
+                                // else{
+                                //     txt += "<tr class='text-muted'> <td>"+item["room_type_title"]+"</td><td><b>"+"₹"+item["price"]+"</b></td><td>"+"   : "+item["available_rooms"]+"</td></tr>"
+                                    
+                                // }
+                                //         });
+                                $('#notification').html(txt)
+                    }   
+                    },
+                 });
+
+            }
+
+    
+        });
+
+
+    </script>
+</body>
+
+<!-- index.html  21 Nov 2019 03:47:04 GMT -->
+
+</html>

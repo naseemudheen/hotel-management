@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- auth-register.html  21 Nov 2019 04:05:01 GMT -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Deluxe - Inn</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/app.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/bundles/jquery-selectric/selectric.css' %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/css/components.css' %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/custom.css' %}">
+  <link rel='shortcut icon' type='image/x-icon' href="{% static 'dashboard/img/icon.png' %}" />
+</head>
+
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            {% block content %}
+
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="{% static 'dashboard/js/app.min.js' %}"></script>
+  <!-- JS Libraies -->
+  <script src="{% static 'dashboard/bundles/jquery-pwstrength/jquery.pwstrength.min.js' %}"></script>
+  <script src="{% static 'dashboard/bundles/jquery-selectric/jquery.selectric.min.js' %}"></script>
+  <script src="{% static 'dashboard/js/sweetalert.min.js' %}"></script>
+
+  <!-- Page Specific JS File -->
+  <script src="{% static 'dashboard/js/page/auth-register.js' %}"></script>
+  <!-- Template JS File -->
+  <script src="{% static 'dashboard/js/scripts.js' %}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'dashboard/js/custom.js' %}"></script>
+  {% block scripts %} {% endblock %}
+</body>
+
+<!-- auth-register.html  21 Nov 2019 04:05:02 GMT -->
+
+</html>

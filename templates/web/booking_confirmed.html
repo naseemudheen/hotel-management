@@ -1,0 +1,35 @@
+{% extends 'web/base.html' %} 
+{% load static %}
+
+{% block content%}
+<div class="site-main page-spacing">
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 border-round mt" style="text-align: center;color: #6f6e6e;">
+                    <h2 >
+                        Your Boooking has been confirmed. <br>
+                    </h2>
+                    <p>
+                        A confirmation Email has been sent to your Email address provided by you.<br>
+                    </p> 
+                      <p style="font-size: medium;color: #000;">
+                        Booking ID: <b>#{{ booking.auto_id }} </b> <br>
+                        Order id :<b>#{{ booking.order_id}} </b>
+                      </p> 
+                    
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </section>
+        
+</div>
+{% endblock %}
+
+
+

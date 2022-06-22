@@ -1,0 +1,273 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>DeluxeInn</title>
+
+	<!-- Standard Favicon -->
+	<link rel="icon" type="image/x-icon" href="#" />
+
+	<!-- For iPhone 4 Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114"
+		href="{% static 'web/images//apple-touch-icon-114x114-precomposed.png' %}">
+
+	<!-- For iPad: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72"
+		href="{% static 'web/images//apple-touch-icon-72x72-precomposed.png' %}">
+
+	<!-- For iPhone: -->
+	<link rel="apple-touch-icon-precomposed" href="{% static 'web/images//apple-touch-icon-57x57-precomposed.png' %}">
+
+	<!-- Library - Google Font Familys -->
+
+	<!-- Library - Bootstrap v3.3.5 -->
+	<link rel="stylesheet" type="text/css" href="{% static 'web/libraries/lib.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'web/libraries/calender/calendar.css' %}">
+
+	<!-- Custom - Common CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/plugins.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/navigation-menu.css' %}">
+
+	<!-- Custom - Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/shortcodes.css' %}" />
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'dashboard/img/icon.png' %}" />
+
+	<!--[if lt IE 9]>
+		<script src="{% static 'web/js/html5/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
+	<!-- Loader -->
+	<a id="top"></a>
+
+	<!-- Header Section -->
+	<header id="header" class="header-section container-fluid no-padding">
+		<!-- Top Header -->
+		<div class="top-header container-fluid">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<div class="logo-block col-md-3"><a href="{% url 'web:index' %}" title="DeluxeInn"><img
+								src="{% static 'web/images/logo.png' %}" alt="Logo" style="margin-top: -41px;" /></a>
+					</div>
+					<div class="col-md-9 contact-detail">
+						<div class="phone">
+							<img src="{% static 'web/images/phone-ic.png' %}" alt="Phone" />
+							<h6>contact us</h6>
+							<a href="tell:1800234567890" title="7907 555 555">7907 555 555
+								|+9144 24327836 <br> 24327837 |
+								+91 9962541077 | 9962541190</a>
+						</div>
+						<div class="address">
+							<img src="{% static 'web/images/address-ic.png' %}" alt="Address" />
+							<h6>our office</h6>
+							<p> 49, Theyagaraya Road,<br>
+								Pondy Bazar, Chennai-600017</p>
+
+						</div>
+						<div class="menu-search">
+
+
+						</div>
+					</div>
+				</div>
+			</div><!-- Container /- -->
+		</div><!-- Top Header /- -->
+		<!-- Menu Block -->
+		<div class="menu-block">
+
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 ">
+						<nav class="navbar navbar-default ow-navigation ">
+							<div class="navbar-header">
+								<button aria-controls="navbar" aria-expanded="false" data-target="#navbar"
+									data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a href="{% url 'web:index' %}" title="Deluxe Inn" class="navbar-brand"><img
+										src="{% static 'web/images/logo.png' %}" alt="Logo"
+										style="margin-top: -101px; max-width:50%" /></a>
+							</div>
+							<div class="navbar-collapse collapse" id="navbar">
+								<ul class="nav navbar-nav">
+									<li class="dropdown active">
+										<a href="{% url 'web:index' %}" title="Home" class="dropdown-toggle" role="button"
+											aria-haspopup="true" aria-expanded="false">Home</a>
+
+
+
+									</li>
+									<li><a href="{% url 'web:index' %}#about" title="About Us">about Us</a></li>
+									<li class="dropdown">
+										<a href="{% url 'web:index' %}#room" title="Rooms" class="dropdown-toggle" role="button"
+											aria-haspopup="true" aria-expanded="false">Rooms</a>
+
+
+									</li>
+									<li><a href="{% url 'web:index' %}#service" title="Services">Services</a></li>
+									<li><a href="{% url 'web:index' %}#gallery" title="Gallery">Gallery</a></li>
+									<li><a href="{% url 'web:index' %}#contact" title="Contact">Contact</a></li>
+									<!-- <li><a href="#booking" title="Book Now">Book now</a></li> -->
+								</ul>
+							</div>
+							
+						</nav>
+					</div>
+					<!-- <div class="col-md-2 book-now">
+						<a href="#" title="Book Now">Book Now</a>
+					</div> -->
+					<!-- <div class="col-md-2 book-now">
+						<a href="#" title="Login">Login</a>
+					</div> -->
+				</div><!-- Row /- -->
+				
+			</div><!-- Container /- -->
+		</div>
+	
+		
+	</header><!-- Header Section /- -->
+
+    {% block content %} 
+            
+    {% endblock %}
+
+    <div class="footer-section container-fluid no-padding" id="contact">
+        <!-- Top Footer -->
+		<div class="top-footer container-fluid no-padding">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<aside class="col-md-3 col-sm-12 col-xs-12 ">
+						<!-- <h4 class="widget_title">Contact Us</h4> -->
+					<div class="footer-navigation">
+							
+							<p> <a href="#index">Home</a></p>
+							<p><a href="#about" title="About Us">About Us</a></p>
+							
+							<p><a href="#room" title="Rooms" >Rooms</a></p>
+							
+							<p><a href="#service" title="Services">Services</a></p>
+							<p><a href="#contact" title="Contact">Contact</a></p>
+							<p><a href="{% url 'web:term_and_conditions' %}" title="Contact">Term and Conditions</a></p>
+							<p><a href="{% url 'web:privacy_policy' %}" title="Contact">Privacy Policy</a></p>
+							<p><a href="{% url 'web:cancellation_policy' %}" title="Contact">Cancellation Policy</a></p>
+
+					</div>
+					</aside>
+
+					<!-- Text Widget -->
+					<aside class="col-md-6 col-sm-12 col-xs-12 contact-content">
+						<h4 class="widget_title">Contact Us</h4>
+					<div class="contact-detail">
+						<i class="fa fa-map-marker"></i>
+						<h5>Office Address</h5>
+						<p>28, Theyagaraya Road,
+							Pondy Bazaar,
+							T Nagar, Chennai </p>
+					</div>
+					<div class="contact-detail">
+						<i class="fa fa-phone"></i>
+						<h5>Phone</h5>
+						<p><span>Local: <a href="#">+914424327836</a></span><span>Mobile: <a href="#">9962541190
+								</a></span></p>
+					</div>
+					<div class="contact-detail">
+						<i class="fa fa-envelope"></i>
+						<h5>Email Address</h5>
+						<p><a href="mailto:info@Hotely.com" title="info@Hotely.com">hoteldeluxeinn@yahoo.com</a></p>
+					</div>
+					<ul>
+						<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+
+							<li><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="#" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+
+
+						</ul>
+					</aside>
+					<!-- pages -->
+
+
+					<!-- Newsletter -->
+					<!-- <aside class="col-md-4 col-sm-6 col-xs-6 widget widget_newsletter">
+
+						<form class="contact-form" id="contact_form" action="https://mail-sender.vingb.com/send/c1fcf443-5aa6-4445-b3ca-aa6aa4885d66" method="post">
+							<div class="form-group">
+								<input type="text" class="form-control" id="input_name" name="enq_name"
+									placeholder="Full Name" required="">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="input_phone" name="enq_phone"
+									placeholder="Phone No" required="">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" id="input_email" name="enq_email"
+									placeholder="Email Address" required="">
+							</div>
+							<div class="form-group">
+								<textarea id="textarea_message" class="form-control" rows="5" name="enq_message"
+									placeholder="Type here message" required=""></textarea>
+							</div>
+							<div class="form-group">
+								<input id="form_submit" type="submit" value="Send Message">
+							</div>
+							<div id="alert-msg" class="alert-msg"></div>
+						</form>
+					</aside>Newsletter /- -->
+					<!-- Gallery -->
+					<!-- <aside class="col-md-3 col-sm-6 col-xs-6 widget widget_gallery">
+
+						<div class="mapouter">
+							<div class="gmap_canvas"><iframe width="400" height="400" id="gmap_canvas"
+									src="https://maps.google.com/maps?q=Bank%20Of%20Baroda%2074,%20Sir%20Theagaraya%20Rd,%20Pondy%20Bazaar,%20Parthasarathi%20Puram,%20T.%20Nagar,%20Chennai,%20Tamil%20Nadu%20600017,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+									frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+									href="https://fmovies-online.net"></a><br><a
+									href="https://www.embedgooglemap.net"></a>
+								<style>
+									.gmap_canvas {
+										overflow: hidden;
+										background: none !important;
+									}
+								</style>
+							</div>
+						</div>
+					</aside>Gallery /- -->
+				</div>
+			</div><!-- Container /- -->
+
+		</div><!-- Top Footer -->
+        <div class="bottom-footer container-fluid">
+            <p>&copy; Copyrights 2021 Deluxe Inn. All Rights Reserved</p>
+        </div>
+    </div><!-- Footer Section /- -->
+	<script src="{% static 'web/js/jquery.min.js' %}"></script>
+
+	<script src="{% static 'web/js/custom.js' %}"></script>
+	{% block scripts %}
+
+	{% endblock %}
+
+</body>
+</html>
+
+
