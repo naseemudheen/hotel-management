@@ -50,7 +50,7 @@ class Offer(models.Model):
 
 
 class Booking(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    temp_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     auto_id = models.PositiveIntegerField(db_index = True,unique=True)
     account = models.ForeignKey(Account, on_delete=models.CASCADE,)
     # room_num = models.ForeignKey(Room_num, on_delete=models.CASCADE)
